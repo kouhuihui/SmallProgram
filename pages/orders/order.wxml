@@ -1,0 +1,53 @@
+<view class="page">
+    <view class="page__hd"></view>
+    <view class="page__bd">
+    <swiper class="swiper" indicator-dots="true" autoplay="false" interval="5000" duration="1000">  
+      <block wx:for="{{patterns}}" wx:for-index="index">  
+        <swiper-item>  
+          <image src="{{item.ImageUrl}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>  
+        <view class="weui-cells weui-cells_after-title" hidden="{{colorForms.length===0}}">
+            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">成色</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <button class="weui-btn mini-btn" type="default" size="mini" wx:for="{{colorForms}}" wx:key="{{item.value}}">{{item.Name}}</button>
+                </view>
+            </view>
+         </view>
+       <view class="weui-cells weui-cells_after-title" hidden="{{mainStones.length===0}}">
+            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">主石</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <button class="weui-btn mini-btn mainstone-btn" type="default" wx:for="{{mainStones}}">{{item}}</button>
+                </view>
+            </view>
+            
+         </view>
+          <view class="weui-cells weui-cells_after-title" hidden="{{handSizes.length===0}}">
+            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手寸</view>
+                </view>
+                <view class="weui-cell__bd">
+                      <button class="weui-btn mini-btn" type="default" size="mini" wx:for="{{handSizes}}" wx:key="*this">{{item}}</button>
+                </view>
+            </view>
+                    <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" wx:for="{{orders}}" wx:key="{{item.value}}">
+                <view class="weui-cell__hd">
+                    <image src="{{item.attachments[0].Url}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </view>
+        </view>
+            
+            
+         </view>
+    </view>
+</view>
