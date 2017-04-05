@@ -10,7 +10,8 @@ Page({
     patternId:"",
     colorFormId:"",
     mainStone:"",
-    handSize:""
+    handSize:"",
+    order:{}
   },
   onLoad:function(options){
      this.data.patternType = options.type;
@@ -28,14 +29,40 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  GetOrders:function(){
+  ChoseColorForm:function(event){
+     this.setData({
+      colorFormId: event.target.dataset.id
+    });
+    this.getMainStones();
+  },
+  ChoseMainStone:function(event){
+     this.setData({
+      mainStone: event.target.dataset.key
+    });
+    this.getHandSizes();
+  },
+  ChoseHandSize:function(event){
+     this.setData({
+      handSize: event.target.dataset.key
+    });
+    this.GetOrder();
+  },
+  GetOrder:function(){
+    var that = this;
      wx.request({  
       url: 'https://www.18k.hk/open/SpotGoods',
-      data: {start:0,take:10},  
+      data: {
+        "PatternId":that.data.patternId,
+        "ColorFormId":that.data.colorFormId,
+        "MainStone":that.data.mainStone,
+        "HandSize":that.data.handSize
+      },
       method: 'POST', 
       header: {'content-type': 'application/json'}, 
       success: function(res){  
-        console.log(res);
+        that.setData({  
+          order:res.data
+        });
       },  
       fail: function(res) {  
       },  
@@ -116,8 +143,10 @@ Page({
       header: {'content-type': 'application/json'}, 
       success: function(res){  
           that.setData({  
-          handSizes:res.data  
-        })  
+          handSizes:res.data,
+          handSize: res.data.length>0?res.data[0]:""
+        });
+        that.GetOrder();
       },  
       fail: function(res) {
       },  
