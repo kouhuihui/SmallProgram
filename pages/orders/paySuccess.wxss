@@ -1,0 +1,14 @@
+/* pages/orders/paySuccess.wxss */
+
+.paySuccess{
+    text-align:center
+}
+
+.paySuccess>.paySuccess-icon{
+    margin-top: 50px;
+}
+
+.paySuccess>.paySuccess-tips{
+    font-size: 16px;
+    font-weight: bold;
+}

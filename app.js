@@ -22,7 +22,8 @@ App({
                 },
               method: 'Post', 
               success: function(res){
-                 console.log(res);
+                wx.setStorageSync('openId', res.data.openId);
+                console.log(res.data.openId);
               },
               fail: function() {
                 // fail

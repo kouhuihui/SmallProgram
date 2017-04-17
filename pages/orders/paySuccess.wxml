@@ -1,0 +1,70 @@
+<view class="page">
+  <view class="page__hd"></view>
+  <view class="page__bd">
+    <view class="paySuccess">
+      <view class="icon-box paySuccess-icon">
+        <icon type="success" size="93"></icon>
+      </view>
+      <view class="paySuccess-tips">
+        支付完成
+      </view>
+    </view>
+    <form bindsubmit="formSubmit">
+    <view class="weui-cells__title">选择物流</view>
+    <view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="logisticTypeChange">
+        <label class="weui-cell weui-check__label">
+          <radio class="weui-check" value="0" />
+          <view class="weui-cell__bd">自取</view>
+          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{logisticType==0}}">
+            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+          </view>
+        </label>
+        <label class="weui-cell weui-check__label">
+          <radio class="weui-check" value="1" />
+          <view class="weui-cell__bd">顺丰</view>
+          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{logisticType==1}}">
+            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+    <view wx:if="{{logisticType==1}}">
+    <view class="weui-cells__title">收货地址信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">收件人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="customerName" class="weui-input" placeholder="请输入收件人" value="{{customerInfo.name}}" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">联系电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="customerPhone" class="weui-input" placeholder="请输入手机号码" value="{{customerInfo.phone}}"  />
+        </view>
+      </view>
+    </view>
+        <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">收件地址</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="address" class="weui-input" placeholder="请输入收件地址" value="{{customerInfo.address}}"  />
+        </view>
+      </view>
+      </view>
+    </view>
+    <view class="weui-form-preview__ft mtop5">
+      <button formType="submit" class="weui-form-preview__btn weui-form-preview__btn_warning" hover-class="weui-form-preview__btn_active">下一步</button>
+    </view>
+    </form>
+  </view>
+</view>

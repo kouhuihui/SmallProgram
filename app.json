@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/orders/order"
+    "pages/orders/order",
+    "pages/orders/paySuccess",
+    "pages/me/myOrders"
   ],
   "window":{
     "backgroundTextStyle":"light",
