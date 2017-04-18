@@ -1,0 +1,13 @@
+.weui-form-preview__hd {
+  position: relative;
+  padding: 2px 15px;
+  text-align: right;
+  line-height: 1.5em;
+}
+
+.status{
+    background-color: lightblue;
+    width: 50px;
+    text-align: center;
+    float: right;
+}

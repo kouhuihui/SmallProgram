@@ -1,3 +1,4 @@
+
 <!--index.wxml
 <view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
@@ -10,15 +11,22 @@
 </view>
 -->
 <view class="page">
-    <view class="page__hd">
-      <!--<view>
+  <view class="page__hd">
+
+    <!--<view>
         <image class="timy" src="../../images/timg.png"></image>
         <text class="notice">最新消息</text>  
       </view>-->
-      <view class="buttongroup">
-        <button bindtap="GotoList" data-type="0" type="default">经典</button>
-        <button bindtap="GotoList" type="primary">时尚</button>
-        <button bindtap="GotoList" type="warn">高订</button>
-      </view>
-      </view>
+    <view class="image-list">
+     <text>请选择款式</text>
+      <navigator url="../orders/order?type=0">
+        <view  class="pattern">
+          <image class="pattern-image" src="../../images/p1.jpg" background-size="cover"></image>
+          <text class="userinfo-nickname">经典</text>
+        </view>
+      </navigator>
+<!--
+           <button bindtap="GotoList" data-type="0" type="default">经典</button>-->
+    </view>
+  </view>
 </view>

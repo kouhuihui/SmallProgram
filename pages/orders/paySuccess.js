@@ -45,14 +45,14 @@ Page({
       method: 'POST',
       header: { 'content-type': 'application/json' },
       success: function (res) {
-        wx.navigateTo({
-          url: '../me/myOrders?openId=' + openId
+        wx.switchTab({
+          url: '../orders/myOrders'
         });
       },
       fail: function (res) {
       },
       complete: function () {
-        // complete  
+ 
       }
     })
   }

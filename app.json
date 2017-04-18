@@ -4,12 +4,28 @@
     "pages/logs/logs",
     "pages/orders/order",
     "pages/orders/paySuccess",
-    "pages/me/myOrders"
+    "pages/orders/myOrders"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "blue",
     "navigationBarTitleText": "珠宝工厂",
     "navigationBarTextStyle":"#fff"
-  }
+  },
+  "tabBar": {  
+   "color": "#a9b7b7",  
+   "selectedColor": "#11cd6e",  
+   "borderStyle":"sliver",  
+   "list": [{  
+     "selectedIconPath": "images/index.png",  
+     "iconPath": "images/index.png",  
+     "pagePath": "pages/index/index",  
+     "text": "首页"  
+   }, {  
+     "selectedIconPath": "images/cart.png",  
+     "iconPath": "images/cart.png",  
+     "pagePath": "pages/orders/myOrders",  
+     "text": "购物车"  
+   }]  
+ }
 }

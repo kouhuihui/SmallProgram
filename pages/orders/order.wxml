@@ -1,86 +1,90 @@
 <view class="page">
-    <view class="page__hd"></view>
-    <view class="page__bd">
-    <swiper class="swiper" indicator-dots="true" autoplay="false" interval="5000" duration="1000">  
-      <block wx:for="{{patterns}}" wx:for-index="index">  
-        <swiper-item>  
-          <image src="{{item.ImageUrl}}" class="slide-image" mode="aspectFill"/>  
-        </swiper-item>  
-      </block>  
-    </swiper>  
-        <view class="weui-cells weui-cells_after-title" hidden="{{colorForms.length===0}}">
-            <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <view class="weui-label">成色</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <button class="weui-btn mini-btn" type="{{colorFormId===item.Id?'primary':'default'}}"  size="mini" wx:for="{{colorForms}}" wx:key="{{item.Id}}" bindtap="ChoseColorForm" data-id="{{item.Id}}">{{item.Name}}</button>
-                </view>
-            </view>
-         </view>
-       <view class="weui-cells weui-cells_after-title" hidden="{{mainStones.length===0}}">
-            <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <view class="weui-label">主石</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <button class="weui-btn mini-btn mainstone-btn" type="{{mainStone==item?'primary':'default'}}" wx:for="{{mainStones}}" bindtap="ChoseMainStone" data-key="{{item}}">{{item}}</button>
-                </view>
-            </view>
-            
-         </view>
-          <view class="weui-cells weui-cells_after-title" hidden="{{handSizes.length===0}}">
-            <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-                <view class="weui-label">手寸</view>
-                </view>
-                <view class="weui-cell__bd">
-                      <button class="weui-btn mini-btn" type="{{handSize==item?'primary':'default'}}"  size="mini" wx:for="{{handSizes}}" wx:key="*this"  bindtap="ChoseHandSize" data-key="{{item}}">{{item}}</button>
-                </view>
-            </view>
-              <view class="weui-form-preview">
-              <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">商品名称</view>
-                    <view class="weui-form-preview__value">{{order.Name}}</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">总重</view>
-                    <view class="weui-form-preview__value">{{order.Weight}}g</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">净金重</view>
-                    <view class="weui-form-preview__value">{{order.GoldWeight}}ct</view>
-                </view>
-                                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">副石品类</view>
-                    <view class="weui-form-preview__value">{{order.SetStoneNames}}</view>
-                </view>
-                        <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">副石数</view>
-                    <view class="weui-form-preview__value">{{order.SetStoneNumbers}}</view>
-                </view>
-                          <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">副石重</view>
-                    <view class="weui-form-preview__value">{{order.SetStoneWeights}}ct</view>
-                </view>
-                    <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">镶嵌费用</view>
-                    <view class="weui-form-preview__value">{{order.MosaicCost}}</view>
-                </view>
-            </view> 
-                        <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">付款金额</view>
-                    <view class="weui-form-preview__value_in-hd">¥{{order.Price}}</view>
-                </view>
-            </view> 
-                       <view class="weui-form-preview__ft">
-                <button bindtap="PayClick" class="weui-form-preview__btn weui-form-preview__btn_warning" hover-class="weui-form-preview__btn_active">付款</button>
-            </view>
-     
-            </view>
-            
-         </view>
+  <view class="page__hd"></view>
+  <view class="page__bd">
+    <swiper class="swiper" indicator-dots="true" autoplay="false" interval="5000" duration="1000">
+      <block wx:for="{{patterns}}" wx:for-index="index">
+        <swiper-item>
+          <image src="{{item.ImageUrl}}" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="weui-cells weui-cells_after-title" hidden="{{colorForms.length===0}}">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">成色</view>
+        </view>
+        <view class="weui-cell__bd">
+          <button class="weui-btn mini-btn" type="{{colorFormId===item.Id?'primary':'default'}}" size="mini" wx:for="{{colorForms}}" wx:key="{{item.Id}}" bindtap="ChoseColorForm" data-id="{{item.Id}}">{{item.Name}}</button>
+        </view>
+      </view>
     </view>
+    <view class="weui-cells weui-cells_after-title" hidden="{{mainStones.length===0}}">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">主石</view>
+        </view>
+        <view class="weui-cell__bd">
+          <button class="weui-btn mini-btn mainstone-btn" type="{{mainStone==item?'primary':'default'}}" wx:for="{{mainStones}}" bindtap="ChoseMainStone" data-key="{{item}}">{{item}}</button>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" hidden="{{handSizes.length===0}}">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">手寸</view>
+        </view>
+        <view class="weui-cell__bd">
+          <button class="weui-btn mini-btn" type="{{handSize==item?'primary':'default'}}" size="mini" wx:for="{{handSizes}}" wx:key="*this" bindtap="ChoseHandSize" data-key="{{item}}">{{item}}</button>
+        </view>
+      </view>
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">商品名称</view>
+            <view class="weui-form-preview__value">{{order.Name}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">总重</view>
+            <view class="weui-form-preview__value">{{order.Weight}}g</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">净金重</view>
+            <view class="weui-form-preview__value">{{order.GoldWeight}}g</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">金价</view>
+            <view class="weui-form-preview__value">{{order.DailyGoldPrice}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">副石品类</view>
+            <view class="weui-form-preview__value">{{order.SetStoneNames}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">副石数</view>
+            <view class="weui-form-preview__value">{{order.SetStoneNumbers}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">副石重</view>
+            <view class="weui-form-preview__value">{{order.SetStoneWeights}}ct</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">镶嵌费用</view>
+            <view class="weui-form-preview__value">{{order.MosaicCost}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">付款金额</view>
+            <view class="weui-form-preview__value_in-hd">¥{{order.Price}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <button bindtap="PayClick" class="weui-form-preview__btn weui-form-preview__btn_warning" hover-class="weui-form-preview__btn_active">付款</button>
+        </view>
+      </view>
+          <view class="weui-cells weui-cells_after-title" hidden="{{colorForms.length > 0}}">
+     商品已售罄。
+    </view>
+    </view>
+  </view>
 </view>

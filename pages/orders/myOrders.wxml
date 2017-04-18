@@ -1,0 +1,33 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__hd">
+  </view>
+  <view class="page__bd">
+ <view class="weui-form-preview"  hidden="{{orders.length > 0}}">
+您还没有购买商品
+ </view>
+    <view class="weui-form-preview" wx:for="{{orders}}" wx:for-item="order" wx:key="*this">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">订单号</view>
+          <view>{{order.Id}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">
+            <image src="{{order.ImageUrl}}" style="margin-right: 5px;vertical-align: middle;width:150px; height: 150px;"></image>
+          </view>
+          <view class="weui-form-preview__value">
+            <view>{{order.Name}}</view>
+            <view>{{order.ColorFormName}}/{{order.MainStone}}/{{order.HandSize}}</view>
+            <view>总重{{order.Weight}}g/净金重{{order.GoldWeight}}g</view>
+            <view>副石{{order.SetStoneNumbers}}/{{order.SetStoneNames}}/{{order.SetStoneWeights}}</view>
+            <view>金价{{order.DailyGoldPrice}}  镶嵌费用{{order.IsMosaic?order.MosaicCost:0}}</view>
+            <view class="weui-form-preview__value_in-hd">¥{{order.Price}}</view>
+            <view class="status">{{order.StatusName}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

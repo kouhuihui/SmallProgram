@@ -107,7 +107,9 @@ Page({
           colorForms: res.data,
           colorFormId: res.data.length > 0 ? res.data[0].Id : ""
         });
-        that.getMainStones();
+        if (that.data.colorFormId !== "") {
+          that.getMainStones();
+        }
       },
       fail: function (res) {
       },
@@ -185,7 +187,8 @@ Page({
         "ProductNo": that.data.productNo,
         "IsMosaic": false,
         "Price": order.Price,
-        "openId": openId
+        "openId": openId,
+        "GoldPrice": order.DailyGoldPrice
       },
       method: 'POST',
       header: { 'content-type': 'application/json' },

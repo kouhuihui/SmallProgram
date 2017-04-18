@@ -25,7 +25,7 @@ Page({
   },
   GotoList: function(event){
     wx.navigateTo({
-      url: '../orders/order?type=' + event.target.dataset.type
+      url: '../orders/paySuccess?orderId=XH000000006'
     })
   }
 })
