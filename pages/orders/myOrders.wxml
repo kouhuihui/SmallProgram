@@ -1,4 +1,4 @@
-<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page">
   <view class="page__hd">
   </view>
   <view class="page__bd">
@@ -25,6 +25,7 @@
             <view>金价{{order.DailyGoldPrice}}  镶嵌费用{{order.IsMosaic?order.MosaicCost:0}}</view>
             <view class="weui-form-preview__value_in-hd">¥{{order.Price}}</view>
             <view class="status">{{order.StatusName}}</view>
+             <view class="status">{{order.SfNo}}</view>
           </view>
         </view>
       </view>

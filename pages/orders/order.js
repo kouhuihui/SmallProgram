@@ -1,6 +1,5 @@
 // pages/orders/order.js
 var utilMd5 = require('../../utils/md5.js');
-
 Page({
   data: {
     patterns: [],
@@ -31,6 +30,14 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  PatternChange: function (e) {
+    var current = e.detail.current;
+    var that = this;
+    that.setData({
+      patternId:that.data.patterns[current].Id
+    });
+    that.getColorForms();
   },
   ChoseColorForm: function (event) {
     this.setData({
@@ -89,8 +96,13 @@ Page({
         that.getColorForms();
       },
       fail: function (res) {
+        wx.showToast({
+          title: res.errMsg,
+          icon: 'fail',
+          duration: 2000
+        });
       },
-      complete: function () {
+      complete: function (res) {
         // complete  
       }
     })
